@@ -1,0 +1,127 @@
+.modal {
+  transition: .8s;
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.44);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  .teacherModal {
+    position: fixed;
+    top: 10px;
+    padding: 30px 80px;
+    border-radius: 10px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    h3 {
+      font-size: 24px;
+      color: rgb(79, 55, 118);
+      text-transform: uppercase;
+    }
+
+    /* From https://css.glass */
+    background: rgba(47, 180, 220, 0.635);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.6px);
+    -webkit-backdrop-filter: blur(9.6px);
+    border: 1px solid rgba(138, 199, 32, 0.57);
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .addTeacher {
+      width: 160px;
+      padding: 8px 0px;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      background: rgb(0, 72, 255);
+      color: white;
+      font-size: 16px;
+      margin: 0 auto;
+    }
+
+    .teacherIsMArried {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      row-gap: 4px;
+
+      .text {
+        color: rgb(191, 0, 255);
+        font-size: 18px;
+      }
+
+      input {
+        padding: 5px 10px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  @media(max-width:550px) {
+    .teacherModal {
+      width: 100%;
+    }
+  }
+
+  @media(max-width:450px) {
+    .teacherModal {
+      h3 {
+        font-size: 22px;
+      }
+
+      padding: 30px 40px;
+    }
+  }
+
+  @media(max-width:300px) {
+    .teacherModal {
+      h3 {
+        font-size: 20px;
+      }
+
+      padding: 20px;
+      .text{
+        font-size: 16px;
+      }
+      input {
+        font-size: 14px;
+      }
+      .close{
+        font-size: 18px;
+      }
+    }
+  }
+
+}
+
+.modal-close {
+  transform: translate(100%, 100%);
+}

@@ -1,0 +1,556 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1280;
+  margin: 0 auto;
+}
+@media (max-width: 1300px) {
+  .container {
+    width: 85%;
+  }
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 18px 16px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.input::-moz-placeholder {
+  color: transparent;
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.input:focus::-moz-placeholder {
+  color: rgb(131, 128, 128);
+}
+
+.input:focus::placeholder {
+  color: rgb(131, 128, 128);
+}
+
+.input:not(:-moz-placeholder-shown) {
+  background-color: #fff;
+  border: 1px solid rgb(98, 0, 255);
+  width: 290px;
+  cursor: none;
+  padding: 18px 16px 18px 40px;
+}
+
+.input:focus,
+.input:not(:placeholder-shown) {
+  background-color: #fff;
+  border: 1px solid rgb(98, 0, 255);
+  width: 290px;
+  cursor: none;
+  padding: 18px 16px 18px 40px;
+}
+
+.icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: -1;
+  fill: rgb(98, 0, 255);
+  border: 1px solid rgb(98, 0, 255);
+}
+
+.input:hover + .icon {
+  transform: rotate(360deg);
+  transition: 0.2s ease-in-out;
+}
+
+.input:not(:-moz-placeholder-shown) + .icon {
+  z-index: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.input:focus + .icon,
+.input:not(:placeholder-shown) + .icon {
+  z-index: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.switch {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(60, 64, 67);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mic-on,
+.mic-off {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.mic-on {
+  z-index: 4;
+}
+
+.mic-off {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  opacity: 0;
+}
+
+.switch:hover {
+  background-color: rgba(60, 64, 67, 0.8);
+}
+
+#checkbox {
+  display: none;
+}
+
+#checkbox:checked + .switch {
+  background-color: red;
+}
+
+#checkbox:checked + .switch .mic-off {
+  opacity: 1;
+}
+
+#checkbox:active + .switch {
+  scale: 1.2;
+}
+
+body {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(315deg, rgb(101, 0, 94) 3%, rgb(60, 132, 206) 38%, rgb(48, 238, 226) 68%, rgb(205, 25, 255) 98%);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.wave {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(1);
+  }
+}
+header {
+  background: rgba(81, 104, 104, 0.811);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+header .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+}
+header .container h2 {
+  font-size: 36px;
+  color: white;
+}
+header .container .input-container {
+  position: fixed;
+  top: 75px;
+  left: 20px;
+}
+header .right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+header .right #sortByIsMarried,
+header .right #sortByLastName,
+header .right .adding {
+  padding: 5px 7px;
+  border: 1px solid aqua;
+  background: rgba(37, 145, 145, 0.276);
+  color: white;
+  outline: none;
+  border-radius: 3px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+@media (max-width: 630px) {
+  header .container {
+    justify-content: center;
+  }
+  header .input-container {
+    top: 110px !important;
+  }
+}
+
+main .card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  justify-content: center;
+  row-gap: 20px;
+  padding: 120px 0px 40px;
+}
+@media (max-width: 810px) {
+  main .card-row .card {
+    width: 60% !important;
+  }
+}
+@media (max-width: 650px) {
+  main .card-row {
+    padding-top: 150px;
+  }
+  main .card-row .card {
+    width: 70% !important;
+  }
+}
+@media (max-width: 550px) {
+  main .card-row .card {
+    width: 85% !important;
+  }
+}
+@media (max-width: 450px) {
+  main .card-row .card {
+    width: 100% !important;
+  }
+}
+main .card-row .card {
+  width: 320px;
+  border-radius: 8px;
+  padding: 0px 0px 10px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+}
+main .card-row .card:nth-child(3) {
+  display: none;
+}
+main .card-row .card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  height: 100%;
+}
+main .card-row .card-content img {
+  width: 100%;
+  height: 260px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  z-index: 1;
+}
+main .card-row .card-content .card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: inherit;
+  text-transform: uppercase;
+  text-align: center;
+}
+main .card-row .card-content .card-para {
+  padding: 2px 20px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  color: inherit;
+  font-size: 16px;
+}
+main .card-row .card:hover {
+  transform: scale(1.02);
+  box-shadow: 1 10px 20px rgba(0, 0, 0, 0.249);
+}
+main .card-row .card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+}
+main .card-row .card:hover:before {
+  transform: translateX(-100%);
+}
+main .card-row .card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+}
+main .card-row .card:hover:after {
+  transform: translateX(100%);
+}
+main .btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+main .btns button,
+main .btns .teacherStudents {
+  padding: 8px 13px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  transition: 0.3s;
+  background: linear-gradient(120deg, rgb(212, 0, 255), rgb(0, 115, 255), rgb(0, 140, 65));
+  color: white;
+}
+main .btns button:nth-child(1):hover,
+main .btns .teacherStudents:nth-child(1):hover {
+  background: rgb(0, 98, 255);
+}
+main .btns button:nth-child(2):hover,
+main .btns .teacherStudents:nth-child(2):hover {
+  background: rgb(3, 203, 113);
+}
+main .btns button:nth-child(3):hover,
+main .btns .teacherStudents:nth-child(3):hover {
+  background: red;
+}
+
+.pagination {
+  width: 100%;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.pagination .page-link {
+  padding: 5px 10px;
+  border: none;
+  background: rgba(0, 170, 255, 0.475);
+  font-size: 16px;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.Active {
+  background: blue;
+}
+
+.disabled {
+  background: blue !important;
+  opacity: 0.4;
+}
+
+.modal {
+  transition: 0.8s;
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.44);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.modal .teacherModal {
+  position: fixed;
+  top: 10px;
+  padding: 30px 80px;
+  border-radius: 10px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  /* From https://css.glass */
+  background: rgba(47, 180, 220, 0.635);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
+  border: 1px solid rgba(138, 199, 32, 0.57);
+}
+.modal .teacherModal h3 {
+  font-size: 24px;
+  color: rgb(79, 55, 118);
+  text-transform: uppercase;
+}
+.modal .teacherModal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.modal .teacherModal .addTeacher {
+  width: 160px;
+  padding: 8px 0px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background: rgb(0, 72, 255);
+  color: white;
+  font-size: 16px;
+  margin: 0 auto;
+}
+.modal .teacherModal .teacherIsMArried {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.modal .teacherModal div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+.modal .teacherModal div .text {
+  color: rgb(191, 0, 255);
+  font-size: 18px;
+}
+.modal .teacherModal div input {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+}
+@media (max-width: 550px) {
+  .modal .teacherModal {
+    width: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .modal .teacherModal {
+    padding: 30px 40px;
+  }
+  .modal .teacherModal h3 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 300px) {
+  .modal .teacherModal {
+    padding: 20px;
+  }
+  .modal .teacherModal h3 {
+    font-size: 20px;
+  }
+  .modal .teacherModal .text {
+    font-size: 16px;
+  }
+  .modal .teacherModal input {
+    font-size: 14px;
+  }
+  .modal .teacherModal .close {
+    font-size: 18px;
+  }
+}
+
+.modal-close {
+  transform: translate(100%, 100%);
+}
