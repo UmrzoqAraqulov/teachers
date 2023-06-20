@@ -194,7 +194,6 @@ teacherModal.addEventListener("submit", function (e) {
 });
 
 function editTeacherInfo(id,e) {
-  e.preventDefault();
   selected = id;
   modalTitle.textContent = "Editing Student";
   addTeacher.textContent = "Save";
@@ -209,6 +208,7 @@ function editTeacherInfo(id,e) {
     formElements.phoneNumber.value = data.phoneNumber;
     formElements.email.value = data.email;
   });
+  e.preventDefault();
 }
 
 async function deleteChangeTeacher(id) {
