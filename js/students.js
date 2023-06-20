@@ -135,7 +135,8 @@ input.addEventListener("keyup", function () {
   getStudents();
 });
 
-adding.addEventListener("click", function () {
+adding.addEventListener("click", function (e) {
+  e.preventDefault();
   teacherModal.reset();
   modalTitle.textContent = "Adding Student";
   addTeacher.textContent = "Add Student";
@@ -192,7 +193,8 @@ teacherModal.addEventListener("submit", function (e) {
   selected = null;
 });
 
-function editTeacherInfo(id) {
+function editTeacherInfo(id,e) {
+  e.preventDefault();
   selected = id;
   modalTitle.textContent = "Editing Student";
   addTeacher.textContent = "Save";
