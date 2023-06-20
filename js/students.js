@@ -152,7 +152,7 @@ function closeModal() {
 }
 
 teacherModal.addEventListener("submit", function (e) {
-  // e.preventDefault();
+  e.preventDefault();
   let firstName = formElements.firstname.value;
   let lastName = formElements.lastName.value;
   let avatar = formElements.img.value;
