@@ -13,8 +13,9 @@ teacherModal.addEventListener("submit", function (e) {
   let isMarried = formElements.isMarried.checked;
   let phoneNumber = formElements.phoneNumber.value;
   let email = formElements.email.value;
-  const numberRegex=/^\+d{12}$/;
+  const numberRegex=/^\+\d{12}$/;
   const isValidNumber = numberRegex.test(phoneNumber);
+  console.log(isValidNumber, phoneNumber);
   if(!isValidNumber){
     alert("invalid phoneNumber! Enter valid phoneNumber");
     return;
